@@ -31,7 +31,7 @@ select
     title,
     artist,
     genres,
-    cast(release_year as varchar) as release_year,
+    cast(cast(release_year as bigint) as varchar) as release_year,
     rating,
     country,
     source_name,
