@@ -32,4 +32,6 @@ built with dbt + BigQuery + Evidence.
 - [Books → Stats](/books/stats)
 - [Movies → Collection](/movies/collection)
 - [Movies → Stats](/movies/stats)
+- [Summary](/summary)
+- [World Map](/map)
 
