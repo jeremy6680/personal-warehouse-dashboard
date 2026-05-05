@@ -28,4 +28,6 @@ built with dbt + BigQuery + Evidence.
 
 - [Music → Collection](/music/collection)
 - [Music → Stats](/music/stats)
+- [Books → Collection](/books/collection)
+- [Books → Stats](/books/stats)
 
