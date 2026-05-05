@@ -35,7 +35,6 @@ from personal_warehouse.mrt_media__summary
 where domain = 'music'
 ```
 
-# Résumé
 
 <BigValue data={totals} value=total_items title="Œuvres au total" />
 <BigValue data={totals} value=total_rated title="Notées" />

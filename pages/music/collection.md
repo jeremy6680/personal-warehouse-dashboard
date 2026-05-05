@@ -66,7 +66,6 @@ where
     and (is_rated = true or '${inputs.rated.value}' = 'all')
 ```
 
-# Musique — Collection
 
 <Dropdown data={genres} name=genre value=genre title="Genre">
     <DropdownOption value="%" valueLabel="Tous les genres" />

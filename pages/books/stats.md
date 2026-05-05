@@ -70,7 +70,6 @@ order by books desc, avg_rating desc
 limit 15
 ```
 
-# Livres — Statistiques
 
 ## Par statut
 

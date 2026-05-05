@@ -55,7 +55,6 @@ where
 order by country, domain, item_title
 ```
 
-# Carte du monde
 
 D'où vient ma médiathèque ?
 

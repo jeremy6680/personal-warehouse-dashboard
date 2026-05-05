@@ -63,7 +63,6 @@ where
     and (is_read = true or '${inputs.read_filter.value}' = 'all')
 ```
 
-# Livres — Collection
 
 <Dropdown data={statuses} name=status value=status title="Statut">
     <DropdownOption value="%" valueLabel="Tous les statuts" />

@@ -69,7 +69,6 @@ order by albums desc, avg_rating desc
 limit 15
 ```
 
-# Musique — Statistiques
 
 ## Par genre
 

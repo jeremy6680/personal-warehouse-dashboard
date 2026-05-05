@@ -11,7 +11,6 @@ select
 from personal_warehouse.mrt_music__collection
 ```
 
-# Personal Warehouse
 
 Une vue data de ma médiathèque — livres, musique et films —
 construite avec dbt + BigQuery + Evidence.

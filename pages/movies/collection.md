@@ -67,7 +67,6 @@ where
     and (is_watched = true or '${inputs.watched_filter.value}' = 'all')
 ```
 
-# Films — Collection
 
 <Dropdown data={content_types} name=content_type value=content_type title="Type">
     <DropdownOption value="%" valueLabel="Tous les types" />

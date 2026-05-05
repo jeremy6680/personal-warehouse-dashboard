@@ -85,7 +85,6 @@ order by titles desc, avg_rating desc
 limit 15
 ```
 
-# Films — Statistiques
 
 ## Par genre
 
