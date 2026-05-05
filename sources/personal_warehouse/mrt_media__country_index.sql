@@ -1,5 +1,6 @@
 select
     country,
+    iso_alpha3,
     domain,
     item_id,
     item_title,

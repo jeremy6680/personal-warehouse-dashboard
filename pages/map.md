@@ -8,29 +8,36 @@ from personal_warehouse.mrt_media__country_index
 order by domain
 ```
 
+```sql country_list
+select distinct country
+from personal_warehouse.mrt_media__country_index
+order by country
+```
+
+```sql choropleth
+select
+    iso_alpha3,
+    country,
+    count(*) as items,
+    round(avg(rating), 2) as avg_rating
+from personal_warehouse.mrt_media__country_index
+where
+    iso_alpha3 is not null
+    and (domain = '${inputs.domain_filter.value}' or '${inputs.domain_filter.value}' = '%')
+group by iso_alpha3, country
+order by items desc
+```
+
 ```sql by_country
 select
     country,
     count(*) as items,
-    count(distinct domain) as domains_represented,
     round(avg(rating), 2) as avg_rating
 from personal_warehouse.mrt_media__country_index
-where country = '${inputs.domain_filter.value}' or '${inputs.domain_filter.value}' = '%'
+where domain = '${inputs.domain_filter.value}' or '${inputs.domain_filter.value}' = '%'
 group by country
 order by items desc
 limit 30
-```
-
-```sql by_country_domain
-select
-    country,
-    domain,
-    count(*) as items
-from personal_warehouse.mrt_media__country_index
-where domain = '${inputs.domain_filter.value}' or '${inputs.domain_filter.value}' = '%'
-group by country, domain
-order by items desc
-limit 60
 ```
 
 ```sql items_table
@@ -48,12 +55,6 @@ where
 order by country, domain, item_title
 ```
 
-```sql country_list
-select distinct country
-from personal_warehouse.mrt_media__country_index
-order by country
-```
-
 # World Map
 
 Where does my media come from?
@@ -68,25 +69,29 @@ Where does my media come from?
 
 ---
 
-## Items by country
+<AreaMap
+    data={choropleth}
+    geoJsonUrl="https://raw.githubusercontent.com/holtzy/D3-graph-gallery/master/DATA/world.geojson"
+    areaCol=iso_alpha3
+    geoId="id"
+    value=items
+    title="Items by country"
+    height=500
+    legendType=scalar
+    startingZoom=2
+    startingLat=20
+    startingLong=10
+/>
+
+---
+
+## Top 30 countries
 
 <BarChart
     data={by_country}
     x=country
     y=items
-    title="Top 30 countries"
-    swapXY=true
-    sort=false
-/>
-
-## Breakdown by country and domain
-
-<BarChart
-    data={by_country_domain}
-    x=country
-    y=items
-    series=domain
-    title="Items per country, by domain"
+    title="Items by country"
     swapXY=true
     sort=false
 />
