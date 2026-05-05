@@ -13,25 +13,26 @@ from personal_warehouse.mrt_music__collection
 
 # Personal Warehouse
 
-A data-driven view of my media collection — books, music, and films —
-built with dbt + BigQuery + Evidence.
+Une vue data de ma médiathèque — livres, musique et films —
+construite avec dbt + BigQuery + Evidence.
 
 ---
 
-## Collection at a glance
+## Ma collection en un coup d'œil
 
 <BigValue data={summary} value=total_items title="Albums" />
 
 ---
 
-## Explore
+## Explorer
 
-- [Music → Collection](/music/collection)
-- [Music → Stats](/music/stats)
-- [Books → Collection](/books/collection)
-- [Books → Stats](/books/stats)
-- [Movies → Collection](/movies/collection)
-- [Movies → Stats](/movies/stats)
-- [Summary](/summary)
-- [World Map](/map)
+- [Musique → Collection](/music/collection)
+- [Musique → Statistiques](/music/stats)
+- [Livres → Collection](/books/collection)
+- [Livres → Statistiques](/books/stats)
+- [Films → Collection](/movies/collection)
+- [Films → Statistiques](/movies/stats)
+- [Résumé](/summary)
+- [Carte du monde](/map)
 
+---

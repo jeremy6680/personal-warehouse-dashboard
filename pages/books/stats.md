@@ -1,5 +1,5 @@
 ---
-title: Books — Stats
+title: Livres — Statistiques
 ---
 
 ```sql by_status
@@ -70,33 +70,33 @@ order by books desc, avg_rating desc
 limit 15
 ```
 
-# Books — Stats
+# Livres — Statistiques
 
-## By status
+## Par statut
 
-<BarChart data={by_status} x=status y=books title="Books by status" swapXY=true />
+<BarChart data={by_status} x=status y=books title="Livres par statut" swapXY=true />
 
-## By genre
+## Par genre
 
-<BarChart data={by_genre} x=genre y=books title="Books by genre" swapXY=true />
+<BarChart data={by_genre} x=genre y=books title="Livres par genre" swapXY=true />
 
-## By country
+## Par pays de l'auteur
 
-<BarChart data={by_country} x=country y=books title="Books by country of author" swapXY=true />
+<BarChart data={by_country} x=country y=books title="Livres par pays de l'auteur" swapXY=true />
 
-## By decade published
+## Par décennie de publication
 
-<BarChart data={by_decade} x=decade y=books title="Books by decade published" sort=false />
+<BarChart data={by_decade} x=decade y=books title="Livres par décennie de publication" sort=false />
 
-## Rating distribution
+## Distribution des notes
 
-<BarChart data={rating_dist} x=rating y=books title="Rating distribution (read books)" />
+<BarChart data={rating_dist} x=rating y=books title="Distribution des notes (livres lus)" />
 
-## Top authors (by book count)
+## Top auteurs (par nombre de livres)
 
 <DataTable data={top_authors} rows=15>
-    <Column id=author />
-    <Column id=books />
-    <Column id=read />
-    <Column id=avg_rating title="Avg rating" />
+    <Column id=author title="Auteur" />
+    <Column id=books title="Livres" />
+    <Column id=read title="Lus" />
+    <Column id=avg_rating title="Note moyenne" />
 </DataTable>

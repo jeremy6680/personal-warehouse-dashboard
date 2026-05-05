@@ -1,5 +1,5 @@
 ---
-title: Movies — Collection
+title: Films — Collection
 ---
 
 ```sql content_types
@@ -67,43 +67,43 @@ where
     and (is_watched = true or '${inputs.watched_filter.value}' = 'all')
 ```
 
-# Movies — Collection
+# Films — Collection
 
 <Dropdown data={content_types} name=content_type value=content_type title="Type">
-    <DropdownOption value="%" valueLabel="All types" />
+    <DropdownOption value="%" valueLabel="Tous les types" />
 </Dropdown>
 
 <Dropdown data={genres} name=genre value=genre title="Genre">
-    <DropdownOption value="%" valueLabel="All genres" />
+    <DropdownOption value="%" valueLabel="Tous les genres" />
 </Dropdown>
 
-<Dropdown data={countries} name=country value=country title="Country">
-    <DropdownOption value="%" valueLabel="All countries" />
+<Dropdown data={countries} name=country value=country title="Pays">
+    <DropdownOption value="%" valueLabel="Tous les pays" />
 </Dropdown>
 
-<Dropdown name=watched_filter title="Watched">
-    <DropdownOption value="all" valueLabel="All" />
-    <DropdownOption value="watched" valueLabel="Watched only" />
+<Dropdown name=watched_filter title="Visionnage">
+    <DropdownOption value="all" valueLabel="Tous" />
+    <DropdownOption value="watched" valueLabel="Vus uniquement" />
 </Dropdown>
 
 ---
 
-<BigValue data={stats} value=total title="Titles" />
-<BigValue data={stats} value=watched title="Watched" />
+<BigValue data={stats} value=total title="Titres" />
+<BigValue data={stats} value=watched title="Vus" />
 <BigValue data={stats} value=wishlist title="Wishlist" />
-<BigValue data={stats} value=avg_rating title="Avg Rating" />
-<BigValue data={stats} value=countries title="Countries" />
+<BigValue data={stats} value=avg_rating title="Note moyenne" />
+<BigValue data={stats} value=countries title="Pays" />
 
 ---
 
 <DataTable data={movies} rows=25 search=true>
-    <Column id=title />
+    <Column id=title title="Titre" />
     <Column id=content_type title="Type" />
-    <Column id=directors />
-    <Column id=genres />
-    <Column id=release_year title="Year" />
-    <Column id=rating />
-    <Column id=runtime_minutes title="Runtime" />
-    <Column id=country />
-    <Column id=first_watched_date title="Watched" />
+    <Column id=directors title="Réalisateurs" />
+    <Column id=genres title="Genres" />
+    <Column id=release_year title="Année" />
+    <Column id=rating title="Note" />
+    <Column id=runtime_minutes title="Durée (min)" />
+    <Column id=country title="Pays" />
+    <Column id=first_watched_date title="Vu le" />
 </DataTable>

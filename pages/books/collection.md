@@ -1,5 +1,5 @@
 ---
-title: Books — Collection
+title: Livres — Collection
 ---
 
 ```sql statuses
@@ -63,43 +63,43 @@ where
     and (is_read = true or '${inputs.read_filter.value}' = 'all')
 ```
 
-# Books — Collection
+# Livres — Collection
 
-<Dropdown data={statuses} name=status value=status title="Status">
-    <DropdownOption value="%" valueLabel="All statuses" />
+<Dropdown data={statuses} name=status value=status title="Statut">
+    <DropdownOption value="%" valueLabel="Tous les statuts" />
 </Dropdown>
 
 <Dropdown data={genres} name=genre value=genre title="Genre">
-    <DropdownOption value="%" valueLabel="All genres" />
+    <DropdownOption value="%" valueLabel="Tous les genres" />
 </Dropdown>
 
-<Dropdown data={countries} name=country value=country title="Country">
-    <DropdownOption value="%" valueLabel="All countries" />
+<Dropdown data={countries} name=country value=country title="Pays">
+    <DropdownOption value="%" valueLabel="Tous les pays" />
 </Dropdown>
 
-<Dropdown name=read_filter title="Read status">
-    <DropdownOption value="all" valueLabel="All books" />
-    <DropdownOption value="read" valueLabel="Read only" />
+<Dropdown name=read_filter title="Lecture">
+    <DropdownOption value="all" valueLabel="Tous les livres" />
+    <DropdownOption value="read" valueLabel="Lus uniquement" />
 </Dropdown>
 
 ---
 
-<BigValue data={stats} value=total title="Books" />
-<BigValue data={stats} value=read title="Read" />
-<BigValue data={stats} value=unread title="To read" />
-<BigValue data={stats} value=avg_rating title="Avg Rating" />
-<BigValue data={stats} value=authors title="Authors" />
-<BigValue data={stats} value=countries title="Countries" />
+<BigValue data={stats} value=total title="Livres" />
+<BigValue data={stats} value=read title="Lus" />
+<BigValue data={stats} value=unread title="À lire" />
+<BigValue data={stats} value=avg_rating title="Note moyenne" />
+<BigValue data={stats} value=authors title="Auteurs" />
+<BigValue data={stats} value=countries title="Pays" />
 
 ---
 
 <DataTable data={books} rows=25 search=true>
-    <Column id=title />
-    <Column id=author />
-    <Column id=genre />
-    <Column id=status />
-    <Column id=rating />
-    <Column id=year_published title="Year" />
-    <Column id=country />
-    <Column id=source />
+    <Column id=title title="Titre" />
+    <Column id=author title="Auteur" />
+    <Column id=genre title="Genre" />
+    <Column id=status title="Statut" />
+    <Column id=rating title="Note" />
+    <Column id=year_published title="Année" />
+    <Column id=country title="Pays" />
+    <Column id=source title="Source" />
 </DataTable>

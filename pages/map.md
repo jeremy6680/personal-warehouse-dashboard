@@ -1,5 +1,5 @@
 ---
-title: World Map
+title: Carte du monde
 ---
 
 ```sql domains
@@ -50,17 +50,17 @@ select
     rating
 from personal_warehouse.mrt_media__country_index
 where
-    (domain = '${inputs.domain_filter.value}' or '${inputs.domain_filter.value}' = '%')
-    and (country = '${inputs.country_filter.value}' or '${inputs.country_filter.value}' = '%')
+    (domain = '${inputs.table_domain.value}' or '${inputs.table_domain.value}' in ('%', 'undefined'))
+    and (country = '${inputs.country_filter.value}' or '${inputs.country_filter.value}' in ('%', 'undefined'))
 order by country, domain, item_title
 ```
 
-# World Map
+# Carte du monde
 
-Where does my media come from?
+D'où vient ma médiathèque ?
 
-<Dropdown data={domains} name=domain_filter value=domain title="Domain">
-    <DropdownOption value="%" valueLabel="All domains" />
+<Dropdown data={domains} name=domain_filter value=domain title="Domaine">
+    <DropdownOption value="%" valueLabel="Tous les domaines" />
 </Dropdown>
 
 ---
@@ -71,39 +71,44 @@ Where does my media come from?
     areaCol=iso_alpha3
     geoId="ADM0_A3"
     value=items
-    title="Items by country"
+    title="Œuvres par pays"
     height=500
     legendType=scalar
     startingZoom=2
     startingLat=20
     startingLong=10
+    opacity=0.65
 />
 
 ---
 
-## Top 30 countries
+## Top 30 pays
 
 <BarChart
     data={by_country}
     x=country
     y=items
-    title="Items by country"
+    title="Œuvres par pays"
     swapXY=true
     sort=false
 />
 
 ---
 
-## All items
+## Toutes les œuvres
 
-<Dropdown data={country_list} name=country_filter value=country title="Filter by country">
-    <DropdownOption value="%" valueLabel="All countries" />
+<Dropdown data={country_list} name=country_filter value=country title="Pays">
+    <DropdownOption value="%" valueLabel="Tous les pays" />
+</Dropdown>
+
+<Dropdown data={domains} name=table_domain value=domain title="Domaine">
+    <DropdownOption value="%" valueLabel="Tous les domaines" />
 </Dropdown>
 
 <DataTable data={items_table} rows=25 search=true>
-    <Column id=country />
-    <Column id=domain />
-    <Column id=item_title title="Title" />
-    <Column id=person_name title="Author / Director / Artist" />
-    <Column id=rating />
+    <Column id=country title="Pays" />
+    <Column id=domain title="Domaine" />
+    <Column id=item_title title="Titre" width=200 wrap=true />
+    <Column id=person_name title="Auteur / Réalisateur / Artiste" />
+    <Column id=rating title="Note" />
 </DataTable>

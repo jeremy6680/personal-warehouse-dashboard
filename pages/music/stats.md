@@ -1,5 +1,5 @@
 ---
-title: Music — Stats
+title: Musique — Statistiques
 ---
 
 ```sql by_genre
@@ -69,32 +69,32 @@ order by albums desc, avg_rating desc
 limit 15
 ```
 
-# Music — Stats
+# Musique — Statistiques
 
-## By genre
+## Par genre
 
-<BarChart data={by_genre} x=genre y=albums title="Albums by genre" swapXY=true />
+<BarChart data={by_genre} x=genre y=albums title="Albums par genre" swapXY=true />
 
-## By country
+## Par pays
 
-<BarChart data={by_country} x=country y=albums title="Albums by country" swapXY=true />
+<BarChart data={by_country} x=country y=albums title="Albums par pays" swapXY=true />
 
-## By decade
+## Par décennie
 
-<BarChart data={by_decade} x=decade y=albums title="Albums by decade" sort=false />
+<BarChart data={by_decade} x=decade y=albums title="Albums par décennie" sort=false />
 
-## Rating distribution
+## Distribution des notes
 
-<BarChart data={rating_dist} x=rating y=albums title="Rating distribution" />
+<BarChart data={rating_dist} x=rating y=albums title="Distribution des notes" />
 
-## By source
+## Par source
 
 <BarChart data={by_source} x=source_name y=albums title="MusicBuddy vs Spotify" />
 
-## Top artists (by album count)
+## Top artistes (par nombre d'albums)
 
 <DataTable data={top_artists} rows=15>
-    <Column id=artist />
-    <Column id=albums />
-    <Column id=avg_rating title="Avg rating" />
+    <Column id=artist title="Artiste" />
+    <Column id=albums title="Albums" />
+    <Column id=avg_rating title="Note moyenne" />
 </DataTable>

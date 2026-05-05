@@ -1,5 +1,5 @@
 ---
-title: Music — Collection
+title: Musique — Collection
 ---
 
 ```sql genres
@@ -66,40 +66,40 @@ where
     and (is_rated = true or '${inputs.rated.value}' = 'all')
 ```
 
-# Music — Collection
+# Musique — Collection
 
 <Dropdown data={genres} name=genre value=genre title="Genre">
-    <DropdownOption value="%" valueLabel="All genres" />
+    <DropdownOption value="%" valueLabel="Tous les genres" />
 </Dropdown>
 
-<Dropdown data={countries} name=country value=country title="Country">
-    <DropdownOption value="%" valueLabel="All countries" />
+<Dropdown data={countries} name=country value=country title="Pays">
+    <DropdownOption value="%" valueLabel="Tous les pays" />
 </Dropdown>
 
 <Dropdown data={sources} name=source value=source_name title="Source">
-    <DropdownOption value="%" valueLabel="All sources" />
+    <DropdownOption value="%" valueLabel="Toutes les sources" />
 </Dropdown>
 
-<Dropdown name=rated title="Rated only">
-    <DropdownOption value="all" valueLabel="All albums" />
-    <DropdownOption value="rated" valueLabel="Rated only" />
+<Dropdown name=rated title="Notation">
+    <DropdownOption value="all" valueLabel="Tous les albums" />
+    <DropdownOption value="rated" valueLabel="Notés uniquement" />
 </Dropdown>
 
 ---
 
 <BigValue data={stats} value=total title="Albums" />
-<BigValue data={stats} value=avg_rating title="Avg Rating" />
-<BigValue data={stats} value=artists title="Artists" />
-<BigValue data={stats} value=rated title="Rated" />
+<BigValue data={stats} value=avg_rating title="Note moyenne" />
+<BigValue data={stats} value=artists title="Artistes" />
+<BigValue data={stats} value=rated title="Notés" />
 
 ---
 
 <DataTable data={albums} rows=25 search=true>
-    <Column id=title />
-    <Column id=artist />
-    <Column id=genres />
-    <Column id=release_year title="Year" />
-    <Column id=rating />
-    <Column id=country />
+    <Column id=title title="Titre" />
+    <Column id=artist title="Artiste" />
+    <Column id=genres title="Genres" />
+    <Column id=release_year title="Année" />
+    <Column id=rating title="Note" />
+    <Column id=country title="Pays" />
     <Column id=source_name title="Source" />
 </DataTable>

@@ -1,5 +1,5 @@
 ---
-title: Summary
+title: Résumé
 ---
 
 ```sql totals
@@ -35,52 +35,52 @@ from personal_warehouse.mrt_media__summary
 where domain = 'music'
 ```
 
-# Summary
+# Résumé
 
-<BigValue data={totals} value=total_items title="Total items" />
-<BigValue data={totals} value=total_rated title="Rated" />
-<BigValue data={totals} value=avg_rating title="Avg rating across all domains" />
+<BigValue data={totals} value=total_items title="Œuvres au total" />
+<BigValue data={totals} value=total_rated title="Notées" />
+<BigValue data={totals} value=avg_rating title="Note moyenne (tous domaines)" />
 
 ---
 
-## Books
+## Livres
 
 <BigValue data={books} value=total_items title="Total" />
-<BigValue data={books} value=items_consumed title="Read" />
-<BigValue data={books} value=items_pending title="To read" />
-<BigValue data={books} value=avg_rating title="Avg rating" />
+<BigValue data={books} value=items_consumed title="Lus" />
+<BigValue data={books} value=items_pending title="À lire" />
+<BigValue data={books} value=avg_rating title="Note moyenne" />
 
-## Movies
+## Films
 
 <BigValue data={movies} value=total_items title="Total" />
-<BigValue data={movies} value=items_consumed title="Watched" />
+<BigValue data={movies} value=items_consumed title="Vus" />
 <BigValue data={movies} value=items_pending title="Wishlist" />
-<BigValue data={movies} value=avg_rating title="Avg rating" />
+<BigValue data={movies} value=avg_rating title="Note moyenne" />
 
-## Music
+## Musique
 
 <BigValue data={music} value=total_items title="Albums" />
-<BigValue data={music} value=items_rated title="Rated" />
-<BigValue data={music} value=avg_rating title="Avg rating" />
+<BigValue data={music} value=items_rated title="Notés" />
+<BigValue data={music} value=avg_rating title="Note moyenne" />
 
 ---
 
-## Collection size by domain
+## Taille de la collection par domaine
 
 <BarChart
     data={by_domain}
     x=domain
     y=total_items
-    title="Total items per domain"
+    title="Nombre d'œuvres par domaine"
 />
 
-## Avg rating by domain
+## Note moyenne par domaine
 
 <BarChart
     data={by_domain}
     x=domain
     y=avg_rating
-    title="Average rating per domain"
+    title="Note moyenne par domaine"
     yMin=0
     yMax=5
 />

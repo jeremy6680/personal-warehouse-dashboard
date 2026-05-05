@@ -1,5 +1,5 @@
 ---
-title: Movies — Stats
+title: Films — Statistiques
 ---
 
 ```sql by_genre
@@ -85,37 +85,37 @@ order by titles desc, avg_rating desc
 limit 15
 ```
 
-# Movies — Stats
+# Films — Statistiques
 
-## By genre
+## Par genre
 
-<BarChart data={by_genre} x=genre y=titles title="Titles by genre" swapXY=true />
+<BarChart data={by_genre} x=genre y=titles title="Titres par genre" swapXY=true />
 
-## By country
+## Par pays
 
-<BarChart data={by_country} x=country y=titles title="Titles by country" swapXY=true />
+<BarChart data={by_country} x=country y=titles title="Titres par pays" swapXY=true />
 
-## By decade
+## Par décennie
 
-<BarChart data={by_decade} x=decade y=titles title="Titles by decade" sort=false />
+<BarChart data={by_decade} x=decade y=titles title="Titres par décennie" sort=false />
 
-## By content type
+## Par type de contenu
 
-<BarChart data={by_content_type} x=content_type y=titles title="Movies vs TV" />
+<BarChart data={by_content_type} x=content_type y=titles title="Films vs Séries" />
 
-## Rating distribution
+## Distribution des notes
 
-<BarChart data={rating_dist} x=rating y=titles title="Rating distribution" />
+<BarChart data={rating_dist} x=rating y=titles title="Distribution des notes" />
 
-## Films watched per year
+## Films vus par année
 
-<BarChart data={by_year_watched} x=year_watched y=titles title="Films watched per year" sort=false />
+<BarChart data={by_year_watched} x=year_watched y=titles title="Films vus par année" sort=false />
 
-## Top directors (by title count)
+## Top réalisateurs (par nombre de titres)
 
 <DataTable data={top_directors} rows=15>
-    <Column id=director />
-    <Column id=titles />
-    <Column id=watched />
-    <Column id=avg_rating title="Avg rating" />
+    <Column id=director title="Réalisateur" />
+    <Column id=titles title="Titres" />
+    <Column id=watched title="Vus" />
+    <Column id=avg_rating title="Note moyenne" />
 </DataTable>
