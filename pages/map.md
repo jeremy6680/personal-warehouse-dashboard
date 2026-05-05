@@ -63,17 +63,13 @@ Where does my media come from?
     <DropdownOption value="%" valueLabel="All domains" />
 </Dropdown>
 
-<Dropdown data={country_list} name=country_filter value=country title="Country">
-    <DropdownOption value="%" valueLabel="All countries" />
-</Dropdown>
-
 ---
 
 <AreaMap
     data={choropleth}
-    geoJsonUrl="https://raw.githubusercontent.com/holtzy/D3-graph-gallery/master/DATA/world.geojson"
+    geoJsonUrl="https://raw.githubusercontent.com/datasets/geo-countries/master/data/countries.geojson"
     areaCol=iso_alpha3
-    geoId="id"
+    geoId="ISO3166-1-Alpha-3"
     value=items
     title="Items by country"
     height=500
@@ -99,6 +95,10 @@ Where does my media come from?
 ---
 
 ## All items
+
+<Dropdown data={country_list} name=country_filter value=country title="Filter by country">
+    <DropdownOption value="%" valueLabel="All countries" />
+</Dropdown>
 
 <DataTable data={items_table} rows=25 search=true>
     <Column id=country />
