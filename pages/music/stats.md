@@ -3,14 +3,14 @@ title: Music — Stats
 ---
 
 ```sql by_genre
-select
-    trim(genre) as genre,
-    count(*) as albums,
-    round(avg(rating), 2) as avg_rating
-from personal_warehouse.mrt_music__collection,
-    unnest(split(genres, ',')) as genre
-where genres is not null and trim(genre) != ''
-group by trim(genre)
+select genre, count(*) as albums, round(avg(rating), 2) as avg_rating
+from (
+    select trim(unnest(string_split(genres, ','))) as genre, rating
+    from personal_warehouse.mrt_music__collection
+    where genres is not null
+)
+where genre != '' and genre != '[]'
+group by genre
 order by albums desc
 limit 20
 ```
@@ -29,13 +29,13 @@ limit 20
 
 ```sql by_decade
 select
-    floor(release_year / 10) * 10 as decade,
+    cast(cast(floor(release_year / 10) * 10 as bigint) as varchar) as decade,
     count(*) as albums,
     round(avg(rating), 2) as avg_rating
 from personal_warehouse.mrt_music__collection
 where release_year is not null
 group by floor(release_year / 10) * 10
-order by decade
+order by floor(release_year / 10) * 10
 ```
 
 ```sql rating_dist
@@ -63,6 +63,7 @@ select
     count(*) as albums,
     round(avg(rating), 2) as avg_rating
 from personal_warehouse.mrt_music__collection
+where artist != 'Various'
 group by artist
 order by albums desc, avg_rating desc
 limit 15
@@ -80,7 +81,7 @@ limit 15
 
 ## By decade
 
-<BarChart data={by_decade} x=decade y=albums title="Albums by decade" />
+<BarChart data={by_decade} x=decade y=albums title="Albums by decade" sort=false />
 
 ## Rating distribution
 

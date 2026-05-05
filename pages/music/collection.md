@@ -3,11 +3,13 @@ title: Music — Collection
 ---
 
 ```sql genres
-select distinct
-    trim(genre) as genre
-from personal_warehouse.mrt_music__collection,
-    unnest(split(genres, ',')) as genre
-where genres is not null and trim(genre) != ''
+select distinct genre
+from (
+    select trim(unnest(string_split(genres, ','))) as genre
+    from personal_warehouse.mrt_music__collection
+    where genres is not null
+)
+where genre != '' and genre != '[]'
 order by genre
 ```
 
@@ -29,7 +31,7 @@ select
     title,
     artist,
     genres,
-    release_year,
+    cast(release_year as varchar) as release_year,
     rating,
     country,
     source_name,
