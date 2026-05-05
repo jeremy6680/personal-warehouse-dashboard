@@ -1,0 +1,5 @@
+name: personal_warehouse
+type: bigquery
+options:
+  project_id: personal-warehouse-495013
+  dataset: personal_warehouse
