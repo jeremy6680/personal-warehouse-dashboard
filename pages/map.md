@@ -67,9 +67,9 @@ Where does my media come from?
 
 <AreaMap
     data={choropleth}
-    geoJsonUrl="https://raw.githubusercontent.com/datasets/geo-countries/master/data/countries.geojson"
+    geoJsonUrl="https://raw.githubusercontent.com/nvkelso/natural-earth-vector/master/geojson/ne_110m_admin_0_countries.geojson"
     areaCol=iso_alpha3
-    geoId="ISO3166-1-Alpha-3"
+    geoId="ADM0_A3"
     value=items
     title="Items by country"
     height=500
