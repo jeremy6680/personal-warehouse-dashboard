@@ -2,16 +2,6 @@
 title: Livres — Statistiques
 ---
 
-```sql by_status
-select
-    status,
-    count(*) as books
-from personal_warehouse.mrt_books__collection
-where status is not null
-group by status
-order by books desc
-```
-
 ```sql by_genre
 select
     genre,
@@ -61,7 +51,7 @@ order by rating desc
 select
     author,
     count(*) as books,
-    countif(is_read) as read,
+    countif(is_rated) as rated,
     round(avg(rating), 2) as avg_rating
 from personal_warehouse.mrt_books__collection
 where author is not null
@@ -70,10 +60,6 @@ order by books desc, avg_rating desc
 limit 15
 ```
 
-
-## Par statut
-
-<BarChart data={by_status} x=status y=books title="Livres par statut" swapXY=true />
 
 ## Par genre
 
@@ -96,6 +82,6 @@ limit 15
 <DataTable data={top_authors} rows=15>
     <Column id=author title="Auteur" />
     <Column id=books title="Livres" />
-    <Column id=read title="Lus" />
+    <Column id=rated title="Notés" />
     <Column id=avg_rating title="Note moyenne" />
 </DataTable>
