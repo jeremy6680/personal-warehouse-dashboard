@@ -12,7 +12,7 @@ from personal_warehouse.mrt_music__collection
 ```
 
 
-Une vue data de ma médiathèque — livres, musique et films —
+Une vue data de ma médiathèque — livres, musique, films, manga et animé —
 construite avec dbt + BigQuery + Evidence.
 
 ---
@@ -31,6 +31,10 @@ construite avec dbt + BigQuery + Evidence.
 - [Livres → Statistiques](/books/stats)
 - [Films → Collection](/movies/collection)
 - [Films → Statistiques](/movies/stats)
+- [Manga → Collection](/manga/collection)
+- [Manga → Statistiques](/manga/stats)
+- [Animé → Collection](/anime/collection)
+- [Animé → Statistiques](/anime/stats)
 - [Résumé](/summary)
 - [Carte du monde](/map)
 

@@ -35,6 +35,18 @@ from personal_warehouse.mrt_media__summary
 where domain = 'music'
 ```
 
+```sql manga
+select total_items, items_rated, avg_rating
+from personal_warehouse.mrt_media__summary
+where domain = 'manga'
+```
+
+```sql anime
+select total_items, items_consumed, items_pending, items_rated, avg_rating
+from personal_warehouse.mrt_media__summary
+where domain = 'anime'
+```
+
 
 <BigValue data={totals} value=total_items title="Œuvres au total" />
 <BigValue data={totals} value=total_rated title="Notées" />
@@ -61,6 +73,19 @@ where domain = 'music'
 <BigValue data={music} value=total_items title="Albums" />
 <BigValue data={music} value=items_rated title="Notés" />
 <BigValue data={music} value=avg_rating title="Note moyenne" />
+
+## Manga
+
+<BigValue data={manga} value=total_items title="Manga" />
+<BigValue data={manga} value=items_rated title="Notés" />
+<BigValue data={manga} value=avg_rating title="Note moyenne" />
+
+## Animé
+
+<BigValue data={anime} value=total_items title="Animés" />
+<BigValue data={anime} value=items_consumed title="Vus" />
+<BigValue data={anime} value=items_pending title="À voir" />
+<BigValue data={anime} value=avg_rating title="Note moyenne" />
 
 ---
 
