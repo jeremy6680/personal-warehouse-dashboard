@@ -9,6 +9,13 @@ where content_type is not null
 order by content_type
 ```
 
+```sql sources
+select distinct source
+from personal_warehouse.mrt_movies__collection
+where source is not null
+order by source
+```
+
 ```sql genres
 select distinct genre
 from (
@@ -46,6 +53,7 @@ where
     and (genres like '%' || '${inputs.genre.value}' || '%' or '${inputs.genre.value}' = '%')
     and (country = '${inputs.country.value}' or '${inputs.country.value}' = '%')
     and (is_watched = true or '${inputs.watched_filter.value}' = 'all')
+    and (source = '${inputs.source.value}' or '${inputs.source.value}' = '%')
 order by
     case when rating is null then 1 else 0 end,
     rating desc,
@@ -65,6 +73,7 @@ where
     and (genres like '%' || '${inputs.genre.value}' || '%' or '${inputs.genre.value}' = '%')
     and (country = '${inputs.country.value}' or '${inputs.country.value}' = '%')
     and (is_watched = true or '${inputs.watched_filter.value}' = 'all')
+    and (source = '${inputs.source.value}' or '${inputs.source.value}' = '%')
 ```
 
 
@@ -83,6 +92,10 @@ where
 <Dropdown name=watched_filter title="Visionnage">
     <DropdownOption value="all" valueLabel="Tous" />
     <DropdownOption value="watched" valueLabel="Vus uniquement" />
+</Dropdown>
+
+<Dropdown data={sources} name=source value=source title="Source">
+    <DropdownOption value="%" valueLabel="Toutes les sources" />
 </Dropdown>
 
 ---
@@ -104,5 +117,6 @@ where
     <Column id=rating title="Note" />
     <Column id=runtime_minutes title="Durée (min)" />
     <Column id=country title="Pays" />
+    <Column id=source title="Source" />
     <Column id=first_watched_date title="Vu le" />
 </DataTable>
