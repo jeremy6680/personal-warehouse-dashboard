@@ -26,6 +26,13 @@ from personal_warehouse.mrt_music__collection
 order by source_name
 ```
 
+```sql formats
+select distinct media_format
+from personal_warehouse.mrt_music__collection
+where media_format is not null
+order by media_format
+```
+
 ```sql albums
 select
     title,
@@ -35,6 +42,7 @@ select
     rating,
     country,
     source_name,
+    media_format,
     total_tracks,
     spotify_album_id
 from personal_warehouse.mrt_music__collection
@@ -42,6 +50,7 @@ where
     (genres like '%' || '${inputs.genre.value}' || '%' or '${inputs.genre.value}' = '%')
     and (country = '${inputs.country.value}' or '${inputs.country.value}' = '%')
     and (source_name = '${inputs.source.value}' or '${inputs.source.value}' = '%')
+    and (media_format = '${inputs.format.value}' or '${inputs.format.value}' = '%')
     and (is_rated = true or '${inputs.rated.value}' = 'all')
 order by
     case when rating is null then 1 else 0 end,
@@ -63,6 +72,7 @@ where
     (genres like '%' || '${inputs.genre.value}' || '%' or '${inputs.genre.value}' = '%')
     and (country = '${inputs.country.value}' or '${inputs.country.value}' = '%')
     and (source_name = '${inputs.source.value}' or '${inputs.source.value}' = '%')
+    and (media_format = '${inputs.format.value}' or '${inputs.format.value}' = '%')
     and (is_rated = true or '${inputs.rated.value}' = 'all')
 ```
 
@@ -77,6 +87,10 @@ where
 
 <Dropdown data={sources} name=source value=source_name title="Source">
     <DropdownOption value="%" valueLabel="Toutes les sources" />
+</Dropdown>
+
+<Dropdown data={formats} name=format value=media_format title="Format">
+    <DropdownOption value="%" valueLabel="Tous les formats" />
 </Dropdown>
 
 <Dropdown name=rated title="Notation">
@@ -101,4 +115,5 @@ where
     <Column id=rating title="Note" />
     <Column id=country title="Pays" />
     <Column id=source_name title="Source" />
+    <Column id=media_format title="Format" />
 </DataTable>
