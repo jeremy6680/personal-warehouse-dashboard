@@ -76,7 +76,8 @@ D'où vient ma médiathèque ?
     startingZoom=2
     startingLat=20
     startingLong=10
-    opacity=0.65
+    opacity=0.8
+    colorPalette={['#FADADD', '#C0392B']}
 />
 
 ---

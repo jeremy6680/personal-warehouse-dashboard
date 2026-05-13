@@ -57,6 +57,17 @@ group by source_name
 order by albums desc
 ```
 
+```sql by_format
+select
+    media_format,
+    count(*) as albums,
+    round(avg(rating), 2) as avg_rating
+from personal_warehouse.mrt_music__collection
+where media_format is not null
+group by media_format
+order by albums desc
+```
+
 ```sql top_artists
 select
     artist,
@@ -89,6 +100,10 @@ limit 15
 ## Par source
 
 <BarChart data={by_source} x=source_name y=albums title="MusicBuddy vs Spotify" />
+
+## Par format
+
+<BarChart data={by_format} x=media_format y=albums title="Albums par format" />
 
 ## Top artistes (par nombre d'albums)
 
